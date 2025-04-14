@@ -31,7 +31,7 @@ const HistoryQuizGenerator = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/chat", {
+      const response = await axios.post("https://bolttest-backend-1.onrender.com/api/chat", {
         text,
         numberOfQuestions,
       });
