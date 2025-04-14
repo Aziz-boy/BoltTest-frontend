@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* index.css yoki App.css */
+
+/* Mobil qurilmada xabarni ko'rsatish */
+.mobile-warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+}
+
+.mobile-warning h2 {
+  font-weight: 600;
+}
+
