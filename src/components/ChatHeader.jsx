@@ -3,22 +3,32 @@ import React from "react";
 
 const ChatHeader = ({ darkMode, setDarkMode, clearChat }) => {
   return (
-    <div className={`flex justify-between items-center mb-4 pb-2 border-b ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
-      <h1 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-        History Quiz Generator
+    <div className="flex justify-between items-center mb-8">
+      <h1
+        className={`text-3xl font-bold bg-gradient-to-r ${
+          darkMode
+            ? "from-blue-400 to-purple-500"
+            : "from-blue-600 to-purple-600"
+        } bg-clip-text text-transparent`}
+      >
+        Tarix Savollar Generatori
       </h1>
-      <div className="flex space-x-3">
+      <div className="flex space-x-4">
         <button
           onClick={() => setDarkMode(!darkMode)}
-          className={`p-2 rounded-md ${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-800'}`}
+          className={`px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 ${
+            darkMode
+              ? "bg-gray-700 text-white hover:bg-gray-600"
+              : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+          }`}
         >
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
+          {darkMode ? "☀️ Yorug'lik" : "🌙 Qorong'u"}
         </button>
         <button
           onClick={clearChat}
-          className="bg-red-500 text-white p-2 rounded-md hover:bg-red-600"
+          className="px-4 py-2 rounded-lg bg-gradient-to-r from-red-500 to-pink-500 text-white transition-all duration-300 transform hover:scale-105 hover:from-red-600 hover:to-pink-600"
         >
-          Clear
+          Tozalash
         </button>
       </div>
     </div>

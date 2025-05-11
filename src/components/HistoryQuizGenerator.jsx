@@ -23,7 +23,7 @@ const HistoryQuizGenerator = () => {
 
   const handleSubmit = async () => {
     if (!text.trim() || !numberOfQuestions) {
-      setError("Both text and number of questions are required.");
+      setError("Matn va savollar soni majburiy.");
       return;
     }
 
@@ -31,14 +31,19 @@ const HistoryQuizGenerator = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("https://bolttest-backend-1.onrender.com/api/chat", {
-        text,
-        numberOfQuestions,
-      });
+      const response = await axios.post(
+        "https://bolttest-backend-1.onrender.com/api/chat",
+        {
+          text,
+          numberOfQuestions,
+        }
+      );
 
       setGeneratedQuestions(response.data.reply);
     } catch (error) {
-      setError("Error generating questions. Please try again later.");
+      setError(
+        "Savollar yaratishda xatolik yuz berdi. Iltimos, keyinroq qayta urinib ko'ring."
+      );
       console.error("Error:", error);
     } finally {
       setIsLoading(false);
@@ -46,35 +51,51 @@ const HistoryQuizGenerator = () => {
   };
 
   return (
-    <div className={`flex flex-col h-screen p-4 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'} transition-colors duration-500`}>
-      <ChatHeader darkMode={darkMode} setDarkMode={setDarkMode} clearChat={clearChat} />
-      
-      <TextInputSection 
-        text={text} 
-        setText={setText} 
-        darkMode={darkMode} 
-      />
-      
-      <QuestionCountInput 
-        numberOfQuestions={numberOfQuestions} 
-        setNumberOfQuestions={setNumberOfQuestions} 
-        darkMode={darkMode} 
-      />
-      
-      <ErrorMessage error={error} />
-      
-      <GenerateButton 
-        handleSubmit={handleSubmit} 
-        isLoading={isLoading} 
-        darkMode={darkMode} 
-      />
-      
-      {generatedQuestions && (
-        <GeneratedQuestions 
-          generatedQuestions={generatedQuestions} 
-          darkMode={darkMode} 
+    <div
+      className={`min-h-screen ${
+        darkMode ? "bg-gray-900" : "bg-gray-50"
+      } transition-colors duration-500`}
+    >
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <ChatHeader
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+          clearChat={clearChat}
         />
-      )}
+
+        <div className="space-y-6 mt-8">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl">
+            <TextInputSection
+              text={text}
+              setText={setText}
+              darkMode={darkMode}
+            />
+
+            <QuestionCountInput
+              numberOfQuestions={numberOfQuestions}
+              setNumberOfQuestions={setNumberOfQuestions}
+              darkMode={darkMode}
+            />
+
+            <ErrorMessage error={error} />
+
+            <GenerateButton
+              handleSubmit={handleSubmit}
+              isLoading={isLoading}
+              darkMode={darkMode}
+            />
+          </div>
+
+          {generatedQuestions && (
+            <div className="transform transition-all duration-300">
+              <GeneratedQuestions
+                generatedQuestions={generatedQuestions}
+                darkMode={darkMode}
+              />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
