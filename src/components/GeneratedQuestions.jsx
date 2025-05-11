@@ -17,13 +17,22 @@ const GeneratedQuestions = ({ generatedQuestions, darkMode }) => {
   return (
     <div className="mt-8">
       <div className="flex justify-between items-center mb-6">
-        <h2
-          className={`text-2xl font-bold ${
-            darkMode ? "text-white" : "text-gray-800"
-          }`}
-        >
-          Yaratilgan Savollar
-        </h2>
+        <div>
+          <h2
+            className={`text-2xl font-bold ${
+              darkMode ? "text-white" : "text-gray-800"
+            } mb-1`}
+          >
+            Savolnoma Natijalari
+          </h2>
+          <p
+            className={`text-sm ${
+              darkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
+            Yaratilgan savollarni nusxa oling
+          </p>
+        </div>
         <button
           onClick={handleCopy}
           className={`px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 ${

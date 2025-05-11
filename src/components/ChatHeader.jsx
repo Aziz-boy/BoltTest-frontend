@@ -4,15 +4,22 @@ import React from "react";
 const ChatHeader = ({ darkMode, setDarkMode, clearChat }) => {
   return (
     <div className="flex justify-between items-center mb-8">
-      <h1
-        className={`text-3xl font-bold bg-gradient-to-r ${
-          darkMode
-            ? "from-blue-400 to-purple-500"
-            : "from-blue-600 to-purple-600"
-        } bg-clip-text text-transparent`}
-      >
-        Tarix Savollar Generatori
-      </h1>
+      <div className="flex flex-col">
+        <h1
+          className={`text-4xl font-bold bg-gradient-to-r ${
+            darkMode
+              ? "from-blue-400 to-purple-500"
+              : "from-blue-600 to-purple-600"
+          } bg-clip-text text-transparent mb-1`}
+        >
+          Savolnoma
+        </h1>
+        <p
+          className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-600"}`}
+        >
+          Tarix savollarini yaratish platformasi
+        </p>
+      </div>
       <div className="flex space-x-4">
         <button
           onClick={() => setDarkMode(!darkMode)}

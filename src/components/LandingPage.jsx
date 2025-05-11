@@ -6,11 +6,11 @@ const LandingPage = () => {
       <div className="max-w-md mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            Tarix Savollar Generatori
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            Savolnoma
           </h1>
-          <p className="text-gray-600 dark:text-gray-300">
-            Matn orqali tarix savollarini yarating
+          <p className="text-gray-600 dark:text-gray-300 text-lg">
+            Tarix savollarini yaratish platformasi
           </p>
         </div>
 
